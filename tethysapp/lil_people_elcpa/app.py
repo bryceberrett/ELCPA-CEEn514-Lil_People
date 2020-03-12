@@ -13,7 +13,7 @@ class LilPeopleElcpa(TethysAppBase):
     root_url = 'lil-people-elcpa'
     color = '#c0392b'
     description = 'This app uses a least cost path analysis to determine the best routes for evacuation based on weighted variables.'
-    tags = '"Evacuation","Least-cost"'
+    tags = '"Evacuation","Least-cost","Tsunami"'
     enable_feedback = False
     feedback_emails = []
 
