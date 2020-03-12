@@ -1,0 +1,152 @@
+{% extends "lil_people_elcpa/base.html" %}
+{% load tethys_gizmos %}
+
+<!--{% block header_buttons %}-->
+<!--  <div class="header-button glyphicon-button" data-toggle="tooltip" data-placement="bottom" title="Help">-->
+<!--    <a data-toggle="modal" data-target="#help-modal"><span class="glyphicon glyphicon-question-sign"></span></a>-->
+<!--  </div>-->
+<!--{% endblock %}-->
+
+{% block app_content %}
+
+<h1>Project Proposal - Evacuation Least Cost Path App</h1>
+
+<p></p>
+
+<h2>Introduction</h2>
+<p>Natural and human caused disasters often occur in areas that do not have
+ adequate or detailed evacuation or safety plans. For example, when man-made
+ dams or levees fail, catastrophic damage can occur very rapidly.
+ The 1976 Teton Dam failure in Idaho is a perfect example of this.
+ After efforts to plug the seepage that had started to develop, the
+ broke and released a wall of water flowing at more than a million cubic
+ feet per second, according to the Bureau of Reclamation’s website1. The
+ website explains, “the communities of Sugar City, Rexburg, and Wilford
+ were battered by the trees, houses, cattle and cars carried by the
+ floodwaters,” and 11 people lost their lives.
+
+It was this event that prompted the Bureau’s “Dam Safety” program to be
+created. To aid in the development of this and other programs aimed at
+local emergency preparation, the Evacuation Least Cost Path (ELCP) App
+will be created. This app allows the user to first identify the hazard
+area that is likely to be affected, using criterion that the user inputs.
+For example, the hazard area that results from flooding due to natural
+causes can be defined by a certain water level that the flood rises to,
+whereas flooding due to a dam failure may be defined from the amount of
+water released by the dam. Once a hazard area is identified, the app
+identifies the most efficient evacuation route for areas within the
+affected area.
+
+This app will greatly aid in emergency preparation efforts for local,
+state, and national agencies and governments. It simplifies the process
+for determining areas at risk and provides a valuable tool to aid in
+defining evacuation efforts. Ultimately, the effectiveness of this app may
+be instrumental in preserving human lives.</p>
+
+
+
+<h3>Tool Overview</h3>
+ <p><b>What kind of vector and raster data analysis will be required?</b></p>
+<ol>
+  <li>Slope</li>
+  <li>Polyline/Polygon to raster</li>
+  <li>Reclassify raster</li>
+  <li>Raster multiplication</li>
+  <li>Least Cost Distance and Path analysis</li>
+</ol>
+
+
+<p><b>What data will be distributed to the app via map services?</b></p>
+<ol>
+  <li>DEM Data</li>
+  <li>Roads/Paths</li>
+  <li>Rivers/Water Bodies</li>
+  <li>Urban/Dense Population Areas</li>
+</ol>
+
+
+<h3>GeoProcessing Workflow</h3>
+<p><b>What geoprocessing workflow will happen on the server - in general terms?</b>
+<ol>
+  <li>Convert any polylines (roads) or polygons (urban areas) to rasters.</li>
+  <li>The user will define weighted values for each raster dataset selected (or there will be defaults or recommended values) and the server will run the reclassify tool to change the raster values for those datasets.</li>
+  <li>The server will then multiply each of the rasters together to make a base raster that will be used for the least cost path analysis.</li>
+  <li>Using the user defined starting point(s), the server will run the Cost-Distance tool and use the resulting backlink and cost distance rasters to compute the costpath as a polyline.</li>
+  <li>The server will compute the length of the line(s) to show the distance needed to travel.
+</ol>
+</p>
+
+
+<h3>Interface</h3>
+<p><b>What are the basic functions that will exist on the front-end user interface? </b></p>
+<p>
+The front-end user interface will include an option to upload a “Hazard Area” shape file. This shape file will define the area of danger from which citizens will have to evacuate. The front-end user will then define a “Area of Interest” using a polygon drawing tool on the map interface. This “Area of Interest” will keep the program from conducting geoprocessing outside of the region. The front-end user will then use a tool with the map interface to define “Starting Point(s).” The app will find the least cost path from danger to safety for each of the “Starting Points” defined by the front end user. In order to calculate the least cost path the front end user will be given the option of uploading or searching for cost distance variable datasets such as roads, buildings, rivers, bridges, or anything the user sees fit. The front-end user will also be given the opportunity to weigh each of the cost distance variables in the map interface. The output map would be a map with the starting points and the evacuation routes highlighted. We would want to allow the user to also see the intermediate datasets such as the cost distance raster. A rough conceptual example of our overall idea (made in Excel and ArcGIS Pro) is shown in the pictures below.
+</p>
+
+
+<h3>Source Code</h3>
+<p><b>How will you store the code on GitHub? </b><p>
+<p>
+The team will store the code on GitHub using a repository made on Izaak Cooper’s personal account. The Repository name of the project will be “ELCP App” There will be multiple branches within the repository that will address different aspects of the app. The names of these branches will be determined as the team understands the number of branches and what type of branches will be needed. Once the individual branches have been perfected their final draft will be saved to the “master” branch. Github will allow the team to work in parallel on different aspects of the app before the final app is created.
+<p>
+
+
+<p><b>What license will you license the source code under?</b><p>
+<p>We will use an MIT license for our source code. This will allow for flexibility as we design this tool and allow the code to be updated and improved upon by others. Since the code will be open-source, we want as many people as possible to be able to build on and improve the code. Thus, we are going with a less restrictive license. If, down the line, a GPL license would be more appropriate, it will be easier to switch to a GPL license from MIT than switching the other way.
+</p>
+
+
+
+<h2>Conclusion</h2>
+<p>The team believes that the ELCP App will greatly aid in emergency preparation efforts for local, state, and national agencies and governments. In order to create the app in an effective manner the team has decided to define the parts of the project that each team member will be responsible for. It is known that this project is a  collaborative effort but each team member will have a specific area of responsibility where they take the lead. Bryce will be mainly responsible for the Geoprocessing aspects of the project. Izaak will be mainly responsible for the front end user interface and the app being usable to other parties. Michael will be mainly in charge of the interaction that the app has with map services and other parts of the web. </p>
+
+<h2>Mockups</h2>
+
+<div id = 'pic'>
+<img id = 'image1' src="https://raw.githubusercontent.com/izaakbc/izaakbc.github.io/master/HomePage.PNG" alt="Italian Trulli">
+
+<div id = 'pic'>
+<img id = 'image2' src="https://raw.githubusercontent.com/izaakbc/izaakbc.github.io/master/InstructionsPage.PNG" alt="Italian Trulli">
+</div>
+
+<div id = 'pic'>
+<img id = 'image3' src="https://raw.githubusercontent.com/izaakbc/izaakbc.github.io/master/MapInputPage.PNG" alt="Italian Trulli">
+</div>
+
+<div id ='pic'>
+<img id = 'image4' src="https://raw.githubusercontent.com/izaakbc/izaakbc.github.io/master/MapOutputPage.PNG" alt="Italian Trulli">
+</div>
+
+</body>
+</html>
+
+{% endblock %}
+
+<!--{# Use the after_app_content block for modals #}-->
+<!--{% block after_app_content %}-->
+<!--  &lt;!&ndash; Example Modal &ndash;&gt;-->
+<!--  <div class="modal fade" id="help-modal" tabindex="-1" role="dialog" aria-labelledby="help-modal-label">-->
+<!--    <div class="modal-dialog" role="document">-->
+<!--      <div class="modal-content">-->
+<!--        <div class="modal-header">-->
+<!--          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>-->
+<!--          <h5 class="modal-title" id="help-modal-label">Example Modal</h5>-->
+<!--        </div>-->
+<!--        <div class="modal-body">-->
+<!--          <p>You can add custom buttons to the app header using the <code>header_buttons</code> block. Use anchor/link tags for the button and wrap it in a div with the class <code>header-button</code>. For buttons with the gliphyicons, add the <code>glyphicon-button</code> class as well.</p>-->
+<!--          <p>Ever have trouble using a modal in a Tethys app? Use the <code>after_app_content</code> block for modal content to allow them to function properly. See: <a href="https://getbootstrap.com/javascript/#modals">Bootstrap Modals</a></p>-->
+<!--          <p>Add tooltips to any element by adding the <code>data-toggle</code>, <code>data-placement</code>, and <code>title</code> attributes to the button. See: <a href="https://getbootstrap.com/javascript/#tooltips">Bootstrap Tooltips</a></p>-->
+<!--        </div>-->
+<!--        <div class="modal-footer">-->
+<!--          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>-->
+<!--          <button type="button" class="btn btn-primary" data-dismiss="modal">OK</button>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--{% endblock %}-->
+
+{% block app_actions %}
+  {#{% gizmo add_button %}#}
+  {#{% gizmo cancel_button %}#}
+{% endblock %}
