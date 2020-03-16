@@ -23,6 +23,7 @@
   {% url 'lil_people_elcpa:Data Input' as Data_Input_url %}
   {% url 'lil_people_elcpa:Display Map' as Display_Map_url %}
   {% url 'lil_people_elcpa:The Team' as The_Team_url %}
+  {% url 'lil_people_elcpa:Mockups' as Mockups_url %}
 
 <!--  <li class="active"><a href="{{ home_url }}">Home</a></li>-->
   <!--This commented out portion is the code for the option to select the home app-->
@@ -32,6 +33,7 @@
   <li class="{% if request.path == Data_Input_url %}active{% endif %}"><a href="{{ Data_Input_url }}">Input Data</a></li>
   <li class="{% if request.path == Display_Map_url %}active{% endif %}"><a href="{{ Display_Map_url }}">Display Map</a></li>
   <li class="{% if request.path == The_Team_url %}active{% endif %}"><a href="{{ The_Team_url }}">The Team</a></li>
+  <li class="{% if request.path == The_Team_url %}active{% endif %}"><a href="{{ Mockups_url }}">Mockups</a></li>
 
 <!--End of added data-->
 {% endblock %}

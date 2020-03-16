@@ -34,6 +34,11 @@ class LilPeopleElcpa(TethysAppBase):
                 url='lil-people-elcpa/PProp',
                 controller='lil_people_elcpa.controllers.PProp'
             ),
+            UrlMap(
+                name='Mockups',
+                url='lil-people-elcpa/Mockups',
+                controller='lil_people_elcpa.controllers.Mockups'
+            ),
         )
 
         return url_maps
