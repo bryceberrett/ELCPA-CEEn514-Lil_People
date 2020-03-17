@@ -1,0 +1,32 @@
+h1{
+ color: blue;
+ font-family: Georgia;
+ text-transform: uppercase;
+ text-align: center;
+}
+p{
+ font-family: Times New Roman;
+}
+img {
+ border-radius: 4px;
+ padding: 5px;
+ position: relative;
+ right: 0;
+ max-height: 100%;
+ object-fit: contain;
+}
+div{
+}
+hr.solid {
+  border-top: 3px solid #bbb;
+}
+.teamblock{
+ background-color: lightyellow;
+ position: relative;
+ vertical-align: top;
+ width: 32.2%;
+ text-align: left;
+ display: inline-block;
+ padding: 5px;
+ border: 1px solid;
+}
