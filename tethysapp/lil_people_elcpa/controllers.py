@@ -159,3 +159,23 @@ def Mockups(request):
     context = {}
 
     return render(request, 'lil_people_elcpa/Mockups.html', context)
+
+@login_required()
+def Geoprocessing_Functions(request):
+    """
+    Controller for the Background Page
+    """
+
+    context = {}
+
+    return render(request, 'lil_people_elcpa/Geoprocessing_Functions.html', context)
+
+@login_required()
+def Data_Description(request):
+    """
+    Controller for the Background Page
+    """
+
+    context = {}
+
+    return render(request, 'lil_people_elcpa/Data_Description.html', context)

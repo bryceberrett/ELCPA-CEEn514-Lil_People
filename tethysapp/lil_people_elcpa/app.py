@@ -49,6 +49,16 @@ class LilPeopleElcpa(TethysAppBase):
                 url='lil-people-elcpa/Mockups',
                 controller='lil_people_elcpa.controllers.Mockups'
             ),
+            UrlMap(
+                name='Geoprocessing_Functions',
+                url='lil-people-elcpa/Geoprocessing_Functions',
+                controller='lil_people_elcpa.controllers.Geoprocessing_Functions'
+            ),
+            UrlMap(
+                name='Data_Description',
+                url='lil-people-elcpa/Data_Description',
+                controller='lil_people_elcpa.controllers.Data_Description'
+            ),
         )
 
         return url_maps
