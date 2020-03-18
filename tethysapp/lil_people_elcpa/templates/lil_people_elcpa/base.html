@@ -19,6 +19,7 @@
 <!--This portion does not yet have references on the other pages-->
   {% url 'lil_people_elcpa:home' as home_url %}
   {% url 'lil_people_elcpa:PProp' as PProp_url %}
+  {% url 'lil_people_elcpa:Background' as Background_url %}
   {% url 'lil_people_elcpa:Instructions' as Instructions_url %}
   {% url 'lil_people_elcpa:Data Input' as Data_Input_url %}
   {% url 'lil_people_elcpa:Display Map' as Display_Map_url %}
@@ -29,6 +30,7 @@
   <!--This commented out portion is the code for the option to select the home app-->
   <li class="{% if request.path == home_url %}active{% endif %}"><a href="{{ home_url }}">Home</a></li>
   <li class="{% if request.path == PProp_url %}active{% endif %}"><a href="{{ PProp_url }}">Project Proposal</a></li>
+  <li class="{% if request.path == Background_url %}active{% endif %}"><a href="{{ Background_url }}">Background</a></li>
   <li class="{% if request.path == add_Instructions_url %}active{% endif %}"><a href="{{ Instructions_url }}">Instructions</a></li>
   <li class="{% if request.path == Data_Input_url %}active{% endif %}"><a href="{{ Data_Input_url }}">Input Data</a></li>
   <li class="{% if request.path == Display_Map_url %}active{% endif %}"><a href="{{ Display_Map_url }}">Display Map</a></li>

@@ -35,6 +35,11 @@ class LilPeopleElcpa(TethysAppBase):
                 controller='lil_people_elcpa.controllers.PProp'
             ),
             UrlMap(
+                name='Background',
+                url='lil-people-elcpa/Background',
+                controller='lil_people_elcpa.controllers.Background'
+            ),
+            UrlMap(
                 name='Team',
                 url='lil-people-elcpa/Team',
                 controller='lil_people_elcpa.controllers.Team'

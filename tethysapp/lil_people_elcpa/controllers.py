@@ -81,6 +81,14 @@ def home(request):
         href=reverse('lil_people_elcpa:PProp'),
     )
 
+    Background_button = Button(
+        display_text='Team',
+        name='Background_Button',
+        icon='glyphicon glyphicon-plus',
+        style='success',
+        href=reverse('lil_people_elcpa:Background'),
+    )
+
     Team_button = Button(
         display_text='Team',
         name='Team_Button',
@@ -105,6 +113,7 @@ def home(request):
         'previous_button': previous_button,
         'next_button': next_button,
         'PProp_button' : PProp_button,
+        'Background_button': Background_button,
         'Team_button' : Team_button,
         'Mockups_button' : Mockups_button
     }
@@ -120,6 +129,16 @@ def PProp(request):
     context = {}
 
     return render(request, 'lil_people_elcpa/PProp.html', context)
+
+@login_required()
+def Background(request):
+    """
+    Controller for the Background Page
+    """
+
+    context = {}
+
+    return render(request, 'lil_people_elcpa/Background.html', context)
 
 @login_required()
 def Team(request):

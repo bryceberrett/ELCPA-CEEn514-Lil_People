@@ -1,0 +1,58 @@
+{% extends "lil_people_elcpa/base.html" %}
+{% load tethys_gizmos %}
+
+{% block header_buttons %}
+{% endblock %}
+
+{% block app_content %}
+
+  <h1>Problem Background</h1>
+  <hr class="solid">
+
+    <p>Natural and human-caused disasters often occur in areas that do not have
+    adequate or detailed evacuation or safety plans. For example, when man-made
+    dams or levees fail, catastrophic damage can occur very rapidly.<br><br>
+       <div style="float: right; margin: 2px 2px 2px 6px; text-align: center;">
+          <img src="https://web.mst.edu/~rogersda/teton_dam/Failure%20of%20Teton%20Dam.jpg" height=300px alt="Teton Dam Failure" style="border: 1px solid #000000;">
+          <figcaption>Source: web.mst.edu/~rogersda/teton_dam/</figcaption>
+      </div>
+    The 1976 Teton Dam failure in Idaho is a perfect example of this.
+    After efforts to plug the seepage that had started to develop, the dam
+    broke and released a wall of water flowing at more than a million cubic
+    feet per second, according to the Bureau of Reclamation’s website1. The
+    website explains, “the communities of Sugar City, Rexburg, and Wilford
+    were battered by the trees, houses, cattle and cars carried by the
+    floodwaters,” and 11 people lost their lives.<br><br>
+
+    It was this event that prompted the Bureau’s “Dam Safety” program to be
+    created. To aid in the development of this and other programs aimed at
+    local emergency preparation, the Evacuation Least Cost Path (ELCP) App
+    will be created. This app allows the user to first identify the hazard
+    area that is likely to be affected, using criterion that the user inputs.
+    For example, the hazard area that results from flooding due to natural
+    causes can be defined by a certain water level that the flood rises to,
+    whereas flooding due to a dam failure may be defined from the amount of
+    water released by the dam. Once a hazard area is identified, the app
+    identifies the most efficient evacuation route for areas within the
+    affected area.<br><br>
+
+    This app will greatly aid in emergency preparation efforts for local,
+    state, and national agencies and governments. It simplifies the process
+    for determining areas at risk and provides a valuable tool to aid in
+    defining evacuation efforts. Ultimately, the effectiveness of this app may
+    be instrumental in preserving human lives.</p>
+
+
+
+
+
+
+{% endblock %}
+
+{% block after_app_content %}
+  {% endblock %}
+
+{% block app_actions %}
+  {#{% gizmo add_button %}#}
+  {#{% gizmo cancel_button %}#}
+{% endblock %}
