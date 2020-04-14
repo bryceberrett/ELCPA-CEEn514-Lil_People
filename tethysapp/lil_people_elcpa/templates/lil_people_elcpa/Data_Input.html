@@ -1,0 +1,109 @@
+{% extends "lil_people_elcpa/base.html" %}
+{% load tethys_gizmos %}
+
+{% block header_buttons %}
+{% endblock %}
+
+{% block app_content %}
+  <h1>Data Input</h1>
+<head>
+
+  <meta charset="utf-8" />
+  <title>Mad Data</title>
+  <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
+
+    <div id="mapid"></div>
+
+  <!-- Load Leaflet from CDN -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+  integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+  crossorigin=""/>
+
+          <!-- Make sure you put this AFTER Leaflet's CSS -->
+ <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+   integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+   crossorigin=""></script>
+
+  <!-- Load Esri Leaflet from CDN -->
+  <script src="https://unpkg.com/esri-leaflet@2.3.3/dist/esri-leaflet.js"
+  integrity="sha512-cMQ5e58BDuu1pr9BQ/eGRn6HaR6Olh0ofcHFWe5XesdCITVuSBiBZZbhCijBe5ya238f/zMMRYIMIIg1jxv4sQ=="
+  crossorigin=""></script>
+
+  <style>
+    body { margin:0; padding:0; }
+    #mapid {
+display: inline-block;
+vertical-align: middle;
+float: right;
+height: 500px;
+width: 50%;
+}
+  </style>
+
+
+  <Script> var map = L.map('mapid').setView([44.276671,-123.556481], 7);
+    L.esri.basemapLayer('Topographic').addTo(map);</Script>
+
+
+</head>
+<body>
+
+<h4>Please fill in the Input data for your analysis.</h4>
+
+<!-- CSS for button group-->
+<style>
+
+.btn-group button {
+  background-color: #00FFFF; /* Cyan background */
+  border: 1px solid Blue; /* Blue border */
+  color: black; /* black text */
+  padding: 10px 24px; /* Some padding */
+  cursor: pointer; /* Pointer/hand icon */
+  width: 200%; /* Set a width if needed */
+  display: block; /* Make the buttons appear below each other */
+}
+
+.btn-group button:not(:last-child) {
+  border-bottom: none; /* Prevent double borders */
+}
+
+/* Add a background color on hover */
+.btn-group button:hover {
+  background-color: #3e8e41;
+}
+</style>
+
+
+ <div class="btn-group">
+  <button>Starting Point(s)</button>
+  <button>Area of Interest</button>
+  <button>Hazard Zone</button>
+</div>
+
+
+
+<div id="StartingPoints">
+<button type="button" name="StartingPoints" value="Starting Points">Starting Point(s)</button>
+</div>
+<br>
+<div id="AreaOfInterest">
+<button type="button" name="AreaOfInterest" value="Area of Interest">Area of Interest</button>
+</div>
+<br>
+<div id="HazardZone">
+<button type="button" name="HazardZone" value="Hazard Zone">Hazard Zone</button>
+</div>
+
+
+
+</body>
+
+{% endblock %}
+
+{% block after_app_content %}
+  {% endblock %}
+
+{% block app_actions %}
+  {#{% gizmo add_button %}#}
+  {#{% gizmo cancel_button %}#}
+{% endblock %}
