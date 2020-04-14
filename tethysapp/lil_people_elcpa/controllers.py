@@ -179,3 +179,23 @@ def Data_Description(request):
     context = {}
 
     return render(request, 'lil_people_elcpa/Data_Description.html', context)
+
+@login_required()
+def Data_Input(request):
+    """
+    Geoprocessing page
+    """
+
+    context = {}
+
+    return render(request, 'lil_people_elcpa/Data_Input.html', context)
+
+@login_required()
+def Geoprocessing(request):
+    """
+    Controller for the Background Page
+    """
+
+    context = {}
+
+    return render(request, 'lil_people_elcpa/Geoprocessing.html', context)
