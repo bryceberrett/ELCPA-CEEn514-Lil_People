@@ -20,10 +20,10 @@
   {% url 'lil_people_elcpa:home' as home_url %}
   {% url 'lil_people_elcpa:PProp' as PProp_url %}
   {% url 'lil_people_elcpa:Background' as Background_url %}
-  {% url 'lil_people_elcpa:Instructions' as Instructions_url %}
+<!--  {% url 'lil_people_elcpa:Instructions' as Instructions_url %}-->
   {% url 'lil_people_elcpa:Data_Description' as Data_Description_url %}
   {% url 'lil_people_elcpa:Geoprocessing_Functions' as Geoprocessing_Functions_url %}
-  {% url 'lil_people_elcpa:Geoprocessing' as Geoprocessing_url %}
+<!--  {% url 'lil_people_elcpa:Geoprocessing' as Geoprocessing_url %}-->
   {% url 'lil_people_elcpa:Data_Input' as Data_Input_url %}
 <!--  {% url 'lil_people_elcpa:Display Map' as Display_Map_url %}-->
 <!--  {% url 'lil_people_elcpa:Team' as Team_url %}-->
@@ -34,10 +34,10 @@
   <li class="{% if request.path == home_url %}active{% endif %}"><a href="{{ home_url }}">Home</a></li>
   <li class="{% if request.path == PProp_url %}active{% endif %}"><a href="{{ PProp_url }}">Project Proposal</a></li>
   <li class="{% if request.path == Background_url %}active{% endif %}"><a href="{{ Background_url }}">Background</a></li>
-  <li class="{% if request.path == add_Instructions_url %}active{% endif %}"><a href="{{ Instructions_url }}">Instructions</a></li>
+<!--  <li class="{% if request.path == add_Instructions_url %}active{% endif %}"><a href="{{ Instructions_url }}">Instructions</a></li>-->
   <li class="{% if request.path == Data_Description_url %}active{% endif %}"><a href="{{ Data_Description_url }}">Data Description</a></li>
   <li class="{% if request.path == Geoprocessing_Functions_url %}active{% endif %}"><a href="{{ Geoprocessing_Functions_url }}">Geoprocessing Functions</a></li>
-  <li class="{% if request.path == Geoprocessing_url %}active{% endif %}"><a href="{{ Geoprocessing_url }}">Geoprocessing</a></li>
+<!--  <li class="{% if request.path == Geoprocessing_url %}active{% endif %}"><a href="{{ Geoprocessing_url }}">Geoprocessing</a></li>-->
   <li class="{% if request.path == Data_Input_url %}active{% endif %}"><a href="{{ Data_Input_url }}">Input Data</a></li>
 <!--  <li class="{% if request.path == Display_Map_url %}active{% endif %}"><a href="{{ Display_Map_url }}">Display Map</a></li>-->
 <!--  <li class="{% if request.path == Team_url %}active{% endif %}"><a href="{{ Team_url }}">The Team</a></li>-->

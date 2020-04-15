@@ -35,8 +35,8 @@
 display: inline-block;
 vertical-align: middle;
 float: right;
-height: 500px;
-width: 50%;
+height: 800px;
+width: 60%;
 }
   </style>
 
@@ -49,52 +49,93 @@ width: 50%;
 <body>
 
 <h4>Please fill in the Input data for your analysis.</h4>
+<br>
+<br>
 
 <!-- CSS for button group-->
-<style>
+<!--<style>-->
 
-.btn-group button {
-  background-color: #00FFFF; /* Cyan background */
-  border: 1px solid Blue; /* Blue border */
-  color: black; /* black text */
-  padding: 10px 24px; /* Some padding */
-  cursor: pointer; /* Pointer/hand icon */
-  width: 200%; /* Set a width if needed */
-  display: block; /* Make the buttons appear below each other */
-}
+<!--.btn-group button {-->
+<!--  background-color: #00FFFF; /* Cyan background */-->
+<!--  border: 1px solid Blue; /* Blue border */-->
+<!--  color: black; /* black text */-->
+<!--  padding: 10px 24px; /* Some padding */-->
+<!--  cursor: pointer; /* Pointer/hand icon */-->
+<!--  width: 200%; /* Set a width if needed */-->
+<!--  display: block; /* Make the buttons appear below each other */-->
+<!--}-->
 
-.btn-group button:not(:last-child) {
-  border-bottom: none; /* Prevent double borders */
-}
+<!--.btn-group button:not(:last-child) {-->
+<!--  border-bottom: none; /* Prevent double borders */-->
+<!--}-->
 
-/* Add a background color on hover */
-.btn-group button:hover {
-  background-color: #3e8e41;
-}
-</style>
+<!--/* Add a background color on hover */-->
+<!--.btn-group button:hover {-->
+<!--  background-color: #3e8e41;-->
+<!--}-->
 
-
- <div class="btn-group">
-  <button>Starting Point(s)</button>
-  <button>Area of Interest</button>
-  <button>Hazard Zone</button>
-</div>
+<!--</style>-->
 
 
+<!-- <div class="btn-group">-->
+<!--  <button>Starting Point(s)</button>-->
+<!--  <button>Area of Interest</button>-->
+<!--  <button>Hazard Zone</button>-->
+<!--</div>-->
 
+
+<!-- Starting Points input-->
 <div id="StartingPoints">
-<button type="button" name="StartingPoints" value="Starting Points">Starting Point(s)</button>
+   <H5>Starting Point(s)
+    <button type="button" name="SelectOnMapPoints" value="Select On Map Points">Select on Map</button></H5>
 </div>
 <br>
+
+<!-- Area of Interst input-->
 <div id="AreaOfInterest">
-<button type="button" name="AreaOfInterest" value="Area of Interest">Area of Interest</button>
+      <H5>Area of Interest
+<button type="button" name="AreaOfInterest" value="Area of Interest">Select on Map</button>
+      </H5>
 </div>
 <br>
+
+<!-- Hazard Zone input-->
 <div id="HazardZone">
-<button type="button" name="HazardZone" value="Hazard Zone">Hazard Zone</button>
+       <H5>Hazard Zone
+<button type="button" name="HazardZoneUpload" value="Hazard Zone Upload">Upload</button>
+    <button type="button" name="HazardZoneElevation" value="Hazard Zone Elevation">Select by Elevation</button>
+       </H5>
 </div>
+<br>
 
+<!-- DEM Selection-->
+<div id="DEM">
+       <H5>DEM Selection
+<button type="button" name="DEMUpload" value="DEM Upload">Upload</button>
+    <button type="button" name="DEMOnlineSelection" value="DEM Online Selection">Select Online</button>
+       </H5>
+</div>
+<br>
 
+<!-- Variable 1-->
+<div id="Variable1">
+       <H5>Variable 1
+<button type="button" name="Variable1Upload" value="Variable 1 Upload">Upload</button>
+    <button type="button" name="Variable1Online" value="Variable1Online">Select Online</button>
+           <button type="button" name="Variable1Weight" value="Variable 1 Weight">Weight Values</button>
+       </H5>
+</div>
+<br>
+
+<!-- Variable 2-->
+<div id="Variable2">
+       <H5>Variable 2
+<button type="button" name="Variable2Upload" value="Variable 2 Upload">Upload</button>
+    <button type="button" name="Variable2Online" value="Variable2Online">Select Online</button>
+           <button type="button" name="Variable2Weight" value="Variable 2 Weight">Weight Values</button>
+       </H5>
+</div>
+<br>
 
 </body>
 
@@ -107,3 +148,12 @@ width: 50%;
   {#{% gizmo add_button %}#}
   {#{% gizmo cancel_button %}#}
 {% endblock %}
+
+
+<!--AreaOfInterest:hover {-->
+<!--  color:#f00;}-->
+<!--  AreaOfInterest:active {-->
+<!--  color:#f00;}-->
+<!--  AreaOfInterest:focus {-->
+<!--  color:#f00;-->
+<!--}-->
