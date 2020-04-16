@@ -12,40 +12,65 @@
   <title>Mad Data</title>
   <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
 
-    <div id="mapid"></div>
 
   <!-- Load Leaflet from CDN -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
   integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
   crossorigin=""/>
 
-          <!-- Make sure you put this AFTER Leaflet's CSS -->
- <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+  <!-- Make sure you put this AFTER Leaflet's CSS -->
+  <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
    integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
    crossorigin=""></script>
 
-  <!-- Load Esri Leaflet from CDN -->
-  <script src="https://unpkg.com/esri-leaflet@2.3.3/dist/esri-leaflet.js"
-  integrity="sha512-cMQ5e58BDuu1pr9BQ/eGRn6HaR6Olh0ofcHFWe5XesdCITVuSBiBZZbhCijBe5ya238f/zMMRYIMIIg1jxv4sQ=="
-  crossorigin=""></script>
-
-  <style>
-    body { margin:0; padding:0; }
-    #mapid {
-display: inline-block;
-vertical-align: middle;
-float: right;
-height: 800px;
-width: 60%;
-}
-  </style>
+<!--  &lt;!&ndash; Load Esri Leaflet from CDN &ndash;&gt;-->
+<!--  <script src="https://unpkg.com/esri-leaflet@2.3.3/dist/esri-leaflet.js"-->
+<!--  integrity="sha512-cMQ5e58BDuu1pr9BQ/eGRn6HaR6Olh0ofcHFWe5XesdCITVuSBiBZZbhCijBe5ya238f/zMMRYIMIIg1jxv4sQ=="-->
+<!--  crossorigin=""></script>-->
 
 
-  <Script> var map = L.map('mapid').setView([44.276671,-123.556481], 7);
-    L.esri.basemapLayer('Topographic').addTo(map);</Script>
+<!--Create map-->
 
+    <style>
+            body { margin:0; padding:0; }
+            #mapid {
+        display: inline-block;
+        vertical-align: middle;
+        float: right;
+        height: 600px;
+        width: 50%;
+        }
+    </style>
 
 </head>
+
+    <div id="mapid"></div>
+
+         <Script> var map = L.map('mapid').setView([44.276671,-123.556481], 7);
+
+            L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}',{
+                attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+                maxZoom: 32,
+                id: 'mapbox/streets-v11',
+                accessToken: 'pk.eyJ1IjoiYWJoaXNoZWthbWFsMTgiLCJhIjoiY2s1eTVxNGExMmQ5MDNubjExaWY5MjdvbSJ9.3nmdjWZmUCDNyRdlPo5gbg'
+            }).addTo(map);
+
+             // L.esri.basemapLayer('Topographic').addTo(map);
+
+            var Roads = L.tileLayer.wms('https://geoserver.hydroshare.org/geoserver/HS-6ade1ad2379045368d1f6d83801f087d/wms?', {
+              layers: 'Roads_Oreg',
+              format: 'image/png',
+              transparent: true
+            }).addTo(map);
+
+            var Roads = L.tileLayer.wms('https://geoserver.hydroshare.org/geoserver/HS-6ade1ad2379045368d1f6d83801f087d/wms?', {
+              layers: 'Roads_Shp',
+              format: 'image/png',
+              transparent: true
+            }).addTo(map);
+         </Script>
+
+
 <body>
 
 <h4>Please fill in the Input data for your analysis.</h4>
@@ -121,8 +146,8 @@ width: 60%;
 <div id="Variable1">
        <H5>Variable 1
 <button type="button" name="Variable1Upload" value="Variable 1 Upload">Upload</button>
-    <button type="button" name="Variable1Online" value="Variable1Online">Select Online</button>
-           <button type="button" name="Variable1Weight" value="Variable 1 Weight">Weight Values</button>
+<button type="button" name="Variable1Online" value="Variable1Online">Select Online</button>
+<button type="button" name="Variable1Weight" value="Variable 1 Weight">Weight Values</button>
        </H5>
 </div>
 <br>
@@ -131,8 +156,8 @@ width: 60%;
 <div id="Variable2">
        <H5>Variable 2
 <button type="button" name="Variable2Upload" value="Variable 2 Upload">Upload</button>
-    <button type="button" name="Variable2Online" value="Variable2Online">Select Online</button>
-           <button type="button" name="Variable2Weight" value="Variable 2 Weight">Weight Values</button>
+<button type="button" name="Variable2Online" value="Variable2Online">Select Online</button>
+<button type="button" name="Variable2Weight" value="Variable 2 Weight">Weight Values</button>
        </H5>
 </div>
 <br>
