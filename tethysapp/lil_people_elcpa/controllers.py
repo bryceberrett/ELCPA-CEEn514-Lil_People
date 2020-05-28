@@ -180,15 +180,143 @@ def Data_Description(request):
 
     return render(request, 'lil_people_elcpa/Data_Description.html', context)
 
+# Added @appworkspace
 @login_required()
 def Data_Input(request):
     """
     Geoprocessing page
     """
 
-    context = {}
+    # Default Values
+    LowValue1 = ''
+    HighValue1 = ''
+    river = ''
+    date_built = ''
+    location = ''
+
+    # Errors
+    LowValue1_error = ''
+    HighValue1_error = ''
+    river_error = ''
+    date_error = ''
+    location_error = ''
+
+    # Handle form submission
+    if request.POST and 'add-button' in request.POST:
+        # Get values
+        has_errors = False
+        LowValue1 = request.POST.get('LowValue1', None)
+        HighValue1 = request.POST.get('HighValue1', None)
+        river = request.POST.get('river', None)
+        date_built = request.POST.get('date-built', None)
+        location = request.POST.get('geometry', None)
+
+        # Validate
+        if not LowValue1:
+            has_errors = True
+            LowValue1_error = 'LowValue1 is required.'
+
+        if not HighValue1:
+            has_errors = True
+            HighValue1_error = 'HighValue1 is required.'
+
+        if not river:
+            has_errors = True
+            river_error = 'River is required.'
+
+        if not date_built:
+            has_errors = True
+            date_error = 'Date Built is required.'
+
+        if not location:
+            has_errors = True
+            location_error = 'Location is required.'
+
+        # if not has_errors:
+        #     Data_input(db_directory=app_workspace.path, location=location, LowValue1=LowValue1, HighValue1=HighValue1, river=river, date_built=date_built)
+        #     return redirect(reverse('lil_people_elcpa:home'))
+
+        messages.error(request, "Please fix errors.")
+
+    # Define form gizmos
+    LowValue1 = TextInput(
+        display_text='LowValue1',
+        name='LowValue1',
+        initial=LowValue1,
+        error=LowValue1_error,
+    )
+
+    HighValue1_input = TextInput(
+        display_text='HighValue1',
+        name='HighValue1',
+        initial=HighValue1,
+        error=HighValue1_error
+    )
+
+    river_input = TextInput(
+        display_text='Weight',
+        name='river',
+        placeholder='new value',
+        initial=river,
+        error=river_error
+    )
+
+    date_built = TextInput(
+        display_text='Low Value 2',
+        name='date-built',
+        error=date_error
+    )
+
+    initial_view = MVView(
+        projection='EPSG:4326',
+        center=[-98.6, 39.8],
+        zoom=3.5
+    )
+
+    drawing_options = MVDraw(
+        controls=['Modify', 'Delete', 'Move', 'Point'],
+        initial='Point',
+        output_format='GeoJSON',
+        point_color='#FF0000'
+    )
+
+    location_input = MapView(
+        height='500px',
+        width='100%',
+        basemap='OpenStreetMap',
+        draw=drawing_options,
+        view=initial_view,
+    )
+
+    add_button = Button(
+        display_text='Add',
+        name='add-button',
+        icon='glyphicon glyphicon-plus',
+        style='success',
+        attributes={'form': 'Weight-form'},
+        submit=True
+    )
+
+    cancel_button = Button(
+        display_text='Cancel',
+        name='cancel-button',
+        href=reverse('lil_people_elcpa:home')
+    )
+
+    context = {
+        'LowValue1': LowValue1,
+        'HighValue1_input': HighValue1_input,
+        'river_input': river_input,
+        'date_built_input': date_built,
+        'location_input': location_input,
+        'location_error': location_error,
+        'add_button': add_button,
+        'cancel_button': cancel_button,
+    }
+    # context = {}
 
     return render(request, 'lil_people_elcpa/Data_Input.html', context)
+
 
 @login_required()
 def Geoprocessing(request):
